@@ -50,7 +50,8 @@ int main() {
         printf("Child has finished. Parent exiting.\n");
     }
     return 0;
-}```
+}
+```
 
 ##OUTPUT
 ![Uploading image.png…]()
@@ -58,21 +59,6 @@ int main() {
 
 
 ## C Program to execute Linux system commands using Linux API system calls exec() , exit() , wait() family
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
