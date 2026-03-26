@@ -62,25 +62,45 @@ int main() {
 ## C Program to execute Linux system commands using Linux API system calls exec() , exit() , wait() family
 
 
+```c
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+int main() {
+    int status;
+    
+    printf("--- Running ps with execl (using full path) ---\n");
+    if (fork() == 0) {
+        // We use /bin/ps because execl needs the absolute path
+        execl("/bin/ps", "ps", "-f", NULL); 
+        perror("execl failed");
+        exit(1);
+    }
+    wait(&status);
+    
+    printf("\n--- Running ps with execlp (searching PATH) ---\n");
+    if (fork() == 0) {
+        // execlp is smarter and finds 'ps' in /bin automatically
+        execlp("ps", "ps", "-f", NULL);
+        perror("execlp failed");
+        exit(1);
+    }
+    wait(&status);
+    
+    printf("\nDone.\n");
+    return 0;
+}
+```
 
 
+## OUTPUT
 
 
-
-
-
-
-
-##OUTPUT
-
-
-
-
-
-
-
-
-
+<img width="679" height="401" alt="image" src="https://github.com/user-attachments/assets/8040653b-fc72-4828-a8a1-d84c0e949d5d" />
 
 
 
