@@ -53,8 +53,9 @@ int main() {
 }
 ```
 
-##OUTPUT
-![Uploading image.png…]()
+## OUTPUT
+<img width="461" height="199" alt="image" src="https://github.com/user-attachments/assets/4f4f2525-282b-4c97-a70d-f74470c0da36" />
+
 
 
 
